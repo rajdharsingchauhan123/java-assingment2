@@ -1,0 +1,28 @@
+Scope variable 
+structure
+run java program
+output
+loop 
+if else
+class definition :class denotes category of objects and acts as a blue prints for creating obj.
+package is a collection of related classse.java uses package to group related class inerfaces 
+an subpackages in any java project How to Create a Package
+Creating a package in java is quite easy, simply include a package command followed by name of the package as the first statement in java source file.
+
+package mypack;
+public class employee 
+{
+    String empId;
+    String name; 
+}
+How to compile Java programs inside packages?
+This is just like compiling a normal java program. If you are not using any IDE, you need to follow the steps given below to successfully compile your packages:
+
+javac -d . FirstProgram.java
+The -d switch specifies the destination where to put the generated class file. You can use any directory name like d:/abc (in case of windows) etc. If you want to keep the package within the same directory, you can use . (dot).
+
+How to run Java package program?
+To run the compiled class that we compiled using above command, we need to specify package name too. Use the below command to run the class file.
+
+java learnjava.FirstProgram
+
