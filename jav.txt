@@ -1,0 +1,232 @@
+What is oops concepts
+oops means real world entity such as pen chair table etc. Oops is m methodology to design program using classes and objets it gives software deveopment process provide some concepts like class object class
+inheritace polymorphism abstraction encapsulaition
+apart form these concepts used to oops. final keyword is useful when you want a variable to
+always store the same value like pi(3.123)
+can we declare main method as final
+yes we can write mani method as final because any method never change so we can write on final key on any method not mani method never be effected.
+Is multiple inheritace supported in java why 
+implementaion of inheritace of java not supported in java because we are created two classes with same method and above method uses in new class which leaves the subclass with two method of same prototype then if you call the method using objects and another class of the compiler face the problemm ambiguous situation not knowing which method to call.
+Execution sequence for static block,block constructor and method
+static block is a block of code with a static keyword they will run and print staic block is set of instruction is run once when a class is loaded into memory 
+public class MyClass {
+   static{
+      System.out.println("Hello this is a static block");
+   }
+   public static void main(String args[]){
+      System.out.println("This is main method");
+   }
+}
+
+constructor is similar to methos and it is call at the time creating an object of the class . On other hand ,constructor are run each time a new instace of class is created you can overload a constructor multiple version of constructore is created
+public class MyClass {
+   MyClass(){
+      System.out.println("Hello this is a constructor");
+   }
+   public static void main(String args[]){
+      new MyClass();
+   
+public class SvC {
+    1. static {
+    2.   //static block
+    3.    System.out.println("Hi, I'm a Static Block!");
+    4.   }
+    5.   public SvC() {
+    6.   System.out.println("Constructor 1 Says Hi!");
+    7.   }
+    8.   public SvC(int c) {
+    9.    System.out.println("Constructor 2 Says Hi!");
+    10.   }public static void main(String[] args) {  
+    11. int counter = 15;  
+    12. SvC object1 = new SvC();
+    13.   SvC object2 = new SvC(); 
+    14.  SvC object3 = new SvC();  
+    15. SvC object4 = new SvC();  
+    16.   SvC object5 = new SvC(15);
+ 
+can we run  absract class which has main method
+yes you can use the main method in abstract class the main method is a static methos so it is associated with class,not with object or istance. the abstract is applicable to the object so there is no problem if it contains the main method
+ublic abstract class TestAbstract {
+        public static void main(String[] args){
+                System.out.println("Inside abstract main");
+        }
+}
+ 
+Output: 
+Inside abstract main
+
+what is marker interface
+A marker interface is an interface that dosen’t have any method ot constants inside it.marker interface also called a tagging interface
+public interface Deletable {
+ }
+can we override a static method
+yes we can have two or more static methods with the same name ,but diffrences in input parameters 
+// filename Test.java
+public class Test {
+    public static void foo() {
+        System.out.println("Test.foo() called ");
+    }
+    public static void foo(int a) {
+        System.out.println("Test.foo(int) called ");
+    }
+    public static void main(String args[])
+    {
+        Test.foo();
+        Test.foo(10);
+    }
+}
+Can we overload methods that differ only by static keyword? 
+We cannot overload two methods in Java if they differ only by static keyword (number of parameters and types of parameters is the same). 
+
+
+// filename Test.java
+public class Test {
+    public static void foo() {
+        System.out.println("Test.foo() called ");
+    }
+    public void foo() { // Compiler Error: cannot redefine foo()
+        System.out.println("Test.foo(int) called ");
+    }
+    public static void main(String args[]) {
+        Test.foo();
+    }
+}
+
+can we make constructor static
+we cannot define a static constructor in Java, If we are trying to define a constructor with the static keyword a compile-time error will occur.
+In general, static means class level. A constructor will be used to assign initial values for the instance variables.
+public class StaticConstructorTest {
+   int x = 10;
+   // Declaratiopn of Static Constructor
+   static StaticConstructorTest() {
+      System.out.println("Static Constructor");
+   }
+   public static void main(String args[]) {
+      StaticConstructorTest sct = new StaticConstructorTest();
+   }
+}
+can we override overloaded method in java 
+yes we can override overloaded method in java .
+Overriding : overriding is a feature of oop lang lik java that is related to run time polymorphism . A sub classs (or derved class)provides a specific implementaion of a method in superclass (base class)the implementation to be executed is is decide at run time and decision is made according to the object used for call.
+Overloading.verloading is a feature of OOP languages like Java that is related to compile time (or static) polymorphism. This feature allows different methods to have same name, but different signatures, especially number of input parameters and type of input paramaters. Note that in Java, methods cannot be overloaded according to return type.
+// Superclass 
+public class Base { 
+ 
+    public void display() { 
+        System.out.println("No argument display method method from Base"); 
+    } 
+ 
+     // overloaded display method  
+     public void display(String str)  { 
+         System.out.println("One argument display method method from Base " + str); 
+    } 
+} 
+ 
+//Subclass
+public class Derived extends Base { 
+ 
+    // Overriding the no-arg display  
+    public void display() { 
+         System.out.println("No argument display method method from Derived"); 
+    } 
+ 
+    // Overriding the one-arg display
+    public void display(String str)  { 
+        System.out.println("One argument display method method from Derived " + str); 
+   } 
+} 
+ 
+public class Test { 
+    public static void main(String args[ ])  { 
+       Base obj1 = new Base(); 
+       obj1.display();
+       obj1.display("Hello");
+       obj1 = new Derived();
+       obj1.display();
+       obj1.display("Hello");
+    } 
+} 
+ 
+ 
+Output:
+No argument display method method from Base
+One argument display method method from Base Hello
+No argument display method method from Derived
+One argument display method method from Derived Hello
+ 
+can we override a private method
+No, we cannot override private or static methods in Java.
+Private methods in Java are not visible to any other class which limits their scope to the class in which they are declared.
+class Parent {
+   private void display() {
+      System.out.println("Super class");    
+   }
+}
+public class Example extends Parent {
+   void display() // trying to override display() {
+      System.out.println("Sub class");
+   }
+   public static void main(String[] args) {
+      Parent obj = new Example();
+      obj.display();
+   }
+}
+
+can we excute the program without main method
+Yes, we can execute a java program without a main method by using a static block. 
+lass StaticInitializationBlock{
+   static{
+      System.out.println("class without a main method");
+      System.exit(0);
+   }
+}
+can we use abstract and final both with a method
+No, as for an abstract method we have to provide implementation in subclass. To do this abstract method have to be overridden but final methods cannot be overridden.
+
+abstract class Show{
+        //abstract final method declaration
+        abstract final void show();
+}
+public class Main extends Show
+{
+        public static void main(String[] args) {
+                System.out.println("Hello World");
+        }
+}
+can we declare a constructor as final  
+No, a constructor can’t be made final.
+A final method cannot be overridden by any subclasses. As mentioned previously, the final modifier prevents a method from being modified in a subclass.
+public class Sample {
+   public static void main(String args[]){
+      int num;
+      final public Sample(){
+         num = 30;
+      }
+   }
+can we declare an interface as final
+
+No ;Interface only have abstract methods. methods. interface method can not be final . cannot be declared final.
+No, we cannot declare final interface in java because its implementation is provided by another class and final interface can not be implemented.
+
+final interface SubtractionTest {
+ 
+    void subtraction(int num1, int num2);
+ 
+ }
+ 
+public class Main implements SubtractionTest
+{
+    public void subtraction(int num1, int num2) {
+        System.out.println(num1 - num2);
+    }
+ 
+        public static void main(String[] args) {
+                Main main = new Main();
+                main.subtraction(150, 100);
+        }
+}
+Deffirence between interface and abstract class
+diffrence between constructor and method 
+diffrence between static loading and dnamic loading class loading
+
+how to prevent inheritace and method overloading
